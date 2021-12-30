@@ -5,12 +5,18 @@ const input = fs.readFileSync("./input.txt").toString();
 const target = parseInt(input);
 
 let a = [];
-let min = Number.MAX_VALUE;
-for (let i = 1; i < 1000000; i++) {
-    for (let j = i * 2; j < 51 * i; j += i) {
-        a[j] = a[j] ? a[j] + i : i + j;
-        if (a[j] > target / 11 && j < min) min = j;
+for (let i = 2; i <= 50; i++) {
+    if (a[i] === undefined) a[i] = i;
+    for (let j = i * i; j < 1000000; j += i) {
+        a[j] = a[j] ? a[j] : j;
+        a[j] += j / i;
     }
 }
-console.log(`Answer: ${min}`);
+
+let i = 3;
+while (a[i]===undefined || a[i] < target / 11) {
+    i++;
+}
+
+console.log(`Answer: ${i}`);
 console.log(`Run time: ${Date.now() - start} ms`);
