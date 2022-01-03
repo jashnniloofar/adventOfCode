@@ -1,0 +1,9 @@
+rect 2x3
+rotate row y=0 by 5
+rect 3x3
+rect 1x1
+rotate column x=13 by 1
+rotate column x=10 by 1
+rotate column x=7 by 1
+rotate column x=2 by 1
+rotate column x=3 by 1
